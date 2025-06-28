@@ -1,0 +1,11 @@
+CREATE DATABASE kcup;
+
+USE kcup;
+
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  type VARCHAR(50),
+  price DECIMAL(10, 2),
+  in_stock BOOLEAN DEFAULT TRUE
+);
