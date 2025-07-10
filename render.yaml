@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: kcup-coffee-shop
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kcup-database
+          property: connectionString
+    autoDeploy: false
+
+databases:
+  - name: kcup-database
+    databaseName: kcup
+    user: kcup_user
+    plan: free
